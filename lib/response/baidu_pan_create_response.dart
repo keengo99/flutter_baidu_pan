@@ -1,15 +1,15 @@
 class BaiduPanCreateResponse {
-  int errno;
-  int fsId;
-  String md5;
-  String serverFilename;
-  int category;
-  String path;
-  int size;
-  int ctime;
-  int mtime;
-  int isdir;
-  String name;
+  int? errno;
+  int? fsId;
+  String? md5;
+  String? serverFilename;
+  int? category;
+  String? path;
+  int? size;
+  int? ctime;
+  int? mtime;
+  int? isdir;
+  String? name;
 
   BaiduPanCreateResponse(
       {this.errno,

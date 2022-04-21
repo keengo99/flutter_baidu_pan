@@ -1,12 +1,11 @@
 name: flutter_baidu_pan
 description: 百度网盘flutter接口
-version: 0.0.1
-author:
+version: 0.0.2
+author: 
 homepage:
 
 environment:
-  sdk: ">=2.10.0 <3.0.0"
-  flutter: ">=1.17.0"
+  sdk: ">=2.16.2 <3.0.0"  
 
 dependencies:
   flutter:
@@ -14,6 +13,7 @@ dependencies:
   dio: ^4.0.6
   url_launcher: ^6.0.20
   crypto: ^3.0.1
+  convert: ^3.0.1
 
 dev_dependencies:
   flutter_test:

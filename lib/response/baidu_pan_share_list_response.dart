@@ -1,12 +1,12 @@
 class BaiduPanShareListResponse {
-  int errno;
-  int requestId;
-  int serverTime;
-  int cfromId;
-  String title;
-  List<FileList> fileList;
-  int shareId;
-  int uk;
+  int? errno;
+  int? requestId;
+  int? serverTime;
+  int? cfromId;
+  String? title;
+  List<FileList>? fileList;
+  int? shareId;
+  int? uk;
 
   BaiduPanShareListResponse(
       {this.errno,
@@ -25,9 +25,9 @@ class BaiduPanShareListResponse {
     cfromId = json['cfrom_id'];
     title = json['title'];
     if (json['list'] != null) {
-      fileList = new List<FileList>();
+      fileList = <FileList>[];
       json['list'].forEach((v) {
-        fileList.add(new FileList.fromJson(v));
+        fileList!.add(new FileList.fromJson(v));
       });
     }
     shareId = json['share_id'];
@@ -42,7 +42,7 @@ class BaiduPanShareListResponse {
     data['cfrom_id'] = this.cfromId;
     data['title'] = this.title;
     if (this.fileList != null) {
-      data['list'] = this.fileList.map((v) => v.toJson()).toList();
+      data['list'] = this.fileList!.map((v) => v.toJson()).toList();
     }
     data['share_id'] = this.shareId;
     data['uk'] = this.uk;
@@ -51,19 +51,19 @@ class BaiduPanShareListResponse {
 }
 
 class FileList {
-  String category;
-  String fsId;
-  String isdir;
-  String localCtime;
-  String localMtime;
-  String md5;
-  String path;
-  String serverCtime;
-  String serverFilename;
-  String serverMtime;
-  String size;
-  Thumbs thumbs;
-  String docpreview;
+  String? category;
+  String? fsId;
+  String? isdir;
+  String? localCtime;
+  String? localMtime;
+  String? md5;
+  String? path;
+  String? serverCtime;
+  String? serverFilename;
+  String? serverMtime;
+  String? size;
+  Thumbs? thumbs;
+  String? docpreview;
 
   FileList(
       {this.category,
@@ -111,7 +111,7 @@ class FileList {
     data['server_mtime'] = this.serverMtime;
     data['size'] = this.size;
     if (this.thumbs != null) {
-      data['thumbs'] = this.thumbs.toJson();
+      data['thumbs'] = this.thumbs?.toJson();
     }
     data['docpreview'] = this.docpreview;
     return data;
@@ -119,8 +119,8 @@ class FileList {
 }
 
 class Thumbs {
-  String url1;
-  String url3;
+  String? url1;
+  String? url3;
 
   Thumbs({this.url1, this.url3});
 

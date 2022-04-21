@@ -1,9 +1,9 @@
 class BaiduPanListAllResponse {
-  int errno;
-  String guidInfo;
-  List<FileList> fileList;
-  String requestId;
-  int guid;
+  int? errno;
+  String? guidInfo;
+  List<FileList>? fileList;
+  String? requestId;
+  int? guid;
 
   BaiduPanListAllResponse(
       {this.errno, this.guidInfo, this.fileList, this.requestId, this.guid});
@@ -12,9 +12,9 @@ class BaiduPanListAllResponse {
     errno = json['errno'];
     guidInfo = json['guid_info'];
     if (json['list'] != null) {
-      fileList = new List<FileList>();
+      fileList = <FileList>[];
       json['list'].forEach((v) {
-        fileList.add(new FileList.fromJson(v));
+        fileList!.add(new FileList.fromJson(v));
       });
     }
     requestId = json['request_id'];
@@ -26,7 +26,7 @@ class BaiduPanListAllResponse {
     data['errno'] = this.errno;
     data['guid_info'] = this.guidInfo;
     if (this.fileList != null) {
-      data['list'] = this.fileList.map((v) => v.toJson()).toList();
+      data['list'] = this.fileList!.map((v) => v.toJson()).toList();
     }
     data['request_id'] = this.requestId;
     data['guid'] = this.guid;
@@ -35,25 +35,25 @@ class BaiduPanListAllResponse {
 }
 
 class FileList {
-  String serverFilename;
-  int privacy;
-  int category;
-  int unlist;
-  int fsId;
-  int dirEmpty;
-  int serverAtime;
-  int serverCtime;
-  int localMtime;
-  int size;
-  int isdir;
-  int share;
-  String path;
-  int localCtime;
-  int serverMtime;
-  int empty;
-  int operId;
-  Thumbs thumbs;
-  String md5;
+  String? serverFilename;
+  int? privacy;
+  int? category;
+  int? unlist;
+  int? fsId;
+  int? dirEmpty;
+  int? serverAtime;
+  int? serverCtime;
+  int? localMtime;
+  int? size;
+  int? isdir;
+  int? share;
+  String? path;
+  int? localCtime;
+  int? serverMtime;
+  int? empty;
+  int? operId;
+  Thumbs? thumbs;
+  String? md5;
 
   FileList(
       {this.serverFilename,
@@ -119,7 +119,7 @@ class FileList {
     data['empty'] = this.empty;
     data['oper_id'] = this.operId;
     if (this.thumbs != null) {
-      data['thumbs'] = this.thumbs.toJson();
+      data['thumbs'] = this.thumbs!.toJson();
     }
     data['md5'] = this.md5;
     return data;
@@ -127,9 +127,9 @@ class FileList {
 }
 
 class Thumbs {
-  String url3;
-  String url2;
-  String url1;
+  String? url3;
+  String? url2;
+  String? url1;
 
   Thumbs({this.url3, this.url2, this.url1});
 

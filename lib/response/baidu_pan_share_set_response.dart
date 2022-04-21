@@ -1,14 +1,14 @@
 class BaiduPanShareSetResponse {
-  int errno;
-  int requestId;
-  int shareid;
-  String link;
-  String shorturl;
-  int ctime;
-  int expiredType;
-  bool premis;
-  String pwd;
-  int uk;
+  int? errno;
+  int? requestId;
+  int? shareid;
+  String? link;
+  String? shorturl;
+  int? ctime;
+  int? expiredType;
+  bool? premis;
+  String? pwd;
+  int? uk;
 
   BaiduPanShareSetResponse(
       {this.errno,

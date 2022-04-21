@@ -1,6 +1,6 @@
 class BaiduPanUploadResponse {
-  String md5;
-  int requestId;
+  String? md5;
+  int? requestId;
 
   BaiduPanUploadResponse({this.md5, this.requestId});
 

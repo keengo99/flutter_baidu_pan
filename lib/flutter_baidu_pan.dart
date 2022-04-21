@@ -67,14 +67,14 @@ class BaiduPan {
   ///获取文件列表
   ///https://pan.baidu.com/union/document/basic#%E8%8E%B7%E5%8F%96%E6%96%87%E4%BB%B6%E5%88%97%E8%A1%A8
   Future<BaiduPanListResponse> list(String token,
-      {String dir,
-      String order,
-      String desc,
-      int start,
-      int limit,
-      String web,
-      int folder,
-      int showempty}) async {
+      {String? dir,
+      String? order,
+      String? desc,
+      int? start,
+      int? limit,
+      String? web,
+      int? folder,
+      int? showempty}) async {
     String par = "";
     if (dir != null) {
       par += "&dir=${Uri.encodeComponent(dir)}";
@@ -118,7 +118,7 @@ class BaiduPan {
   //fail(默认，直接返回失败)、newcopy(重命名文件)、overwrite、skip
   Future<BaiduPanListResponse> fileManager(
       String token, String opera, int async, Map<String, String> filelist,
-      {String ondup}) async {
+      {String? ondup}) async {
     var data = "async=$async&filelist=${jsonEncode(filelist)}";
     if (ondup != null) {
       data += "&ondup=$ondup";
@@ -132,15 +132,15 @@ class BaiduPan {
   ///获取文件列表
   ///recursion 是否递归
   ///https://pan.baidu.com/union/document/basic#%E8%8E%B7%E5%8F%96%E6%96%87%E4%BB%B6%E5%88%97%E8%A1%A8
-  Future<BaiduPanListAllResponse> listall(String token, String path,
-      {String order,
-      String desc,
-      int start,
-      int limit,
-      int recursion,
-      int ctime,
-      int mtime,
-      int web}) async {
+  Future<BaiduPanListAllResponse> listall(String token, String? path,
+      {String? order,
+      String? desc,
+      int? start,
+      int? limit,
+      int? recursion,
+      int? ctime,
+      int? mtime,
+      int? web}) async {
     String par = "";
     if (path != null) {
       par += "&path=${Uri.encodeComponent(path)}";
@@ -183,7 +183,7 @@ class BaiduPan {
   }
 
   Future download(String token, String dlink, String savePath,
-      {ProgressCallback onReceiveProgress}) async {
+      {ProgressCallback? onReceiveProgress}) async {
     await _dio.download("$dlink&access_token=$token", savePath,
         onReceiveProgress: onReceiveProgress,
         options: Options(headers: {"User-Agent": "pan.baidu.com"}));
@@ -217,11 +217,11 @@ class BaiduPan {
   //上传
   Future<BaiduPanUploadResponse> upload(
       String token, String savePath, int size, String uploadid,
-      {String filePath, List<int> bytes}) async {
+      {String? filePath, List<int>? bytes}) async {
     assert(filePath != null || bytes != null);
     FormData formData = FormData.fromMap({
       "file": filePath == null
-          ? MultipartFile.fromBytes(bytes, filename: basename(savePath))
+          ? MultipartFile.fromBytes(bytes!, filename: basename(savePath))
           : await MultipartFile.fromFile(filePath, filename: basename(savePath))
     });
 
@@ -262,20 +262,20 @@ class BaiduPan {
 
   //创建分享
   Future<BaiduPanShareListResponse> shareList(
-      {int shareid,
-      int uk,
-      String shorturl,
-      int page,
-      int num,
-      int root,
-      int fid,
-      String sekey}) async {
+      {int? shareid,
+      int? uk,
+      String? shorturl,
+      int? page,
+      int? num,
+      int? root,
+      int? fid,
+      String? sekey}) async {
     assert((shareid != null && uk != null) || shorturl != null);
     var querystring = {
       "method": "list",
       "shareid": shareid,
       "uk": uk,
-      "shorturl": Uri.encodeComponent(shorturl),
+      "shorturl": Uri.encodeComponent(shorturl!),
       "page": page,
       "num": num,
       "root": root,

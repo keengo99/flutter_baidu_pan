@@ -1,10 +1,10 @@
 class BaiduPanPrecreateResponse {
-  String path;
-  String uploadid;
-  int returnType;
-  List<int> blockList;
-  int errno;
-  int requestId;
+  String? path;
+  String? uploadid;
+  int? returnType;
+  List<int>? blockList;
+  int? errno;
+  int? requestId;
 
   BaiduPanPrecreateResponse(
       {this.path,

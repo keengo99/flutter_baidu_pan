@@ -1,8 +1,8 @@
 class BaiduPanMultimediaResponse {
-  String errmsg;
-  int errno;
-  List<FileList> list;
-  String requestId;
+  String? errmsg;
+  int? errno;
+  List<FileList>? list;
+  String? requestId;
 
   BaiduPanMultimediaResponse(
       {this.errmsg, this.errno, this.list, this.requestId});
@@ -11,9 +11,9 @@ class BaiduPanMultimediaResponse {
     errmsg = json['errmsg'];
     errno = json['errno'];
     if (json['list'] != null) {
-      list = new List<FileList>();
+      list = <FileList>[];
       json['list'].forEach((v) {
-        list.add(new FileList.fromJson(v));
+        list!.add(new FileList.fromJson(v));
       });
     }
     requestId = json['request_id'];
@@ -24,7 +24,7 @@ class BaiduPanMultimediaResponse {
     data['errmsg'] = this.errmsg;
     data['errno'] = this.errno;
     if (this.list != null) {
-      data['list'] = this.list.map((v) => v.toJson()).toList();
+      data['list'] = this.list!.map((v) => v.toJson()).toList();
     }
     data['request_id'] = this.requestId;
     return data;
@@ -32,21 +32,21 @@ class BaiduPanMultimediaResponse {
 }
 
 class FileList {
-  int category;
-  int dateTaken;
-  String dlink;
-  String filename;
-  int fsId;
-  int height;
-  int isdir;
-  String md5;
-  int operId;
-  String path;
-  int serverCtime;
-  int serverMtime;
-  int size;
-  Thumbs thumbs;
-  int width;
+  int? category;
+  int? dateTaken;
+  String? dlink;
+  String? filename;
+  int? fsId;
+  int? height;
+  int? isdir;
+  String? md5;
+  int? operId;
+  String? path;
+  int? serverCtime;
+  int? serverMtime;
+  int? size;
+  Thumbs? thumbs;
+  int? width;
 
   FileList(
       {this.category,
@@ -100,7 +100,7 @@ class FileList {
     data['server_mtime'] = this.serverMtime;
     data['size'] = this.size;
     if (this.thumbs != null) {
-      data['thumbs'] = this.thumbs.toJson();
+      data['thumbs'] = this.thumbs!.toJson();
     }
     data['width'] = this.width;
     return data;
@@ -108,10 +108,10 @@ class FileList {
 }
 
 class Thumbs {
-  String icon;
-  String url1;
-  String url2;
-  String url3;
+  String? icon;
+  String? url1;
+  String? url2;
+  String? url3;
 
   Thumbs({this.icon, this.url1, this.url2, this.url3});
 

@@ -1,22 +1,21 @@
 class BaiduPanSearchResponse {
-  int errno;
-  List<BaiduPanSearchList> list;
-  int requestId;
-  int hasMore;
+  int? errno;
+  List<BaiduPanSearchList>? list;
+  int? requestId;
+  int? hasMore;
 
-  BaiduPanSearchResponse(
-      {this.errno, this.list, this.requestId, this.hasMore});
+  BaiduPanSearchResponse({this.errno, this.list, this.requestId, this.hasMore});
 
   BaiduPanSearchResponse.fromJson(Map<String, dynamic> json) {
     errno = json['errno'];
     if (json['list'] != null) {
-      list = new List<BaiduPanSearchList>();
+      list = <BaiduPanSearchList>[];
       json['list'].forEach((v) {
-        list.add(new BaiduPanSearchList.fromJson(v));
+        list!.add(new BaiduPanSearchList.fromJson(v));
       });
     }
     requestId = json['request_id'];
-  
+
     hasMore = json['has_more'];
   }
 
@@ -24,31 +23,31 @@ class BaiduPanSearchResponse {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['errno'] = this.errno;
     if (this.list != null) {
-      data['list'] = this.list.map((v) => v.toJson()).toList();
+      data['list'] = this.list!.map((v) => v.toJson()).toList();
     }
     data['request_id'] = this.requestId;
-  
+
     data['has_more'] = this.hasMore;
     return data;
   }
 }
 
 class BaiduPanSearchList {
-  int fsId;
-  String path;
-  String serverFilename;
-  int size;
-  int serverMtime;
-  int serverCtime;
-  int localMtime;
-  int localCtime;
-  int isdir;
-  int category;
-  int share;
-  int operId;
-  int extentTinyint1;
-  int wpfile;
-  String md5;
+  int? fsId;
+  String? path;
+  String? serverFilename;
+  int? size;
+  int? serverMtime;
+  int? serverCtime;
+  int? localMtime;
+  int? localCtime;
+  int? isdir;
+  int? category;
+  int? share;
+  int? operId;
+  int? extentTinyint1;
+  int? wpfile;
+  String? md5;
 
   BaiduPanSearchList(
       {this.fsId,

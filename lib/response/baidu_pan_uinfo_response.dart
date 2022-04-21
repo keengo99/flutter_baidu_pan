@@ -1,12 +1,12 @@
 class BaiduPanUinfoResponse {
-  String avatarUrl;
-  String baiduName;
-  String errmsg;
-  int errno;
-  String netdiskName;
-  String requestId;
-  int uk;
-  int vipType;
+  String? avatarUrl;
+  String? baiduName;
+  String? errmsg;
+  int? errno;
+  String? netdiskName;
+  String? requestId;
+  int? uk;
+  int? vipType;
 
   BaiduPanUinfoResponse(
       {this.avatarUrl,
